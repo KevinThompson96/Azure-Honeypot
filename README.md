@@ -38,11 +38,9 @@ Using the free \$200 credit in Azure, I created a resource group (a logical cont
 
 I intentionally disabled all the security settings when configuring this VM, deleted the default RDP firewall rule in the network security group, and created my own custom inbound rule to expose all the ports on the VM to increase the attack surface.
 
-![Lab Architecture Diagram](screenshots/Lab-Architecture.png)
+![Allow All Ports](screenshots/4-allow-all-ports.png)
 
 Using the remote desktop connection app, I logged on to my VM from my host machine and disabled the firewall. I then pinged the VM from my host machine to confirm its discoverability.
-
-![Allow All Ports](screenshots/4-allow-all-ports.png)
 
 ![Remote Desktop Connection](screenshots/5-remote-desktop.png)
 
