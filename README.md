@@ -74,3 +74,11 @@ For a very basic SIEM lab, I was able to observe just how quickly exposed system
 
 In a future lab, I would like to be able to implement a PowerShell script like Josh did in his video, but in a JSON format, and figure out the proper configuration in the newer version of Azure. I want to see the results in live time, on a visual global map in Microsoft Sentinel. Finally, I would also like to run this lab for a longer time, perhaps a for a full day or two, to see how many more different IP's (and where they originate) attack my system.
 
+## Update:
+
+I recently found that Josh made an updated walkthrough (from about a year ago) of the same lab ([Cyber Home Lab from ZERO and Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025)](https://www.youtube.com/watch?v=g5JL2RIbThM)). In the update, he used an updated JSON script, a custom geolocation IP spreadsheet (instead of the API), and implemented it through Workbooks in Azure. Some of the steps were a little different, as Azure has gone through more updates. Particularly when creating the Workbook, it is now separated into Microsoft Defender (previously Azure Defender), and some of the layout was a little different, but more of less the same. 
+Following the walkthrough, I was able to configure a live geolocation attack map, for a more in-depth and visual representation of the failed login attempts. I kept the VM running for around 48 hours, and the results were very interesting. The size and scale of attacks coming in to vulnerable machine were drastic. Almost 100,000 failed logins! (and almost 70,000 from one country alone!). 
+
+![Global Map](screenshots/13-global-map.png)
+
+This shows how quickly internet-exposed systems attract malicious (automated) activity and highlights the importance of defense-in-depth, monitoring, and logging in cloud environments. Also, most attempts used the username “administrator” (or some variation). This also highlights the importance of properly configuring your admin accounts. Admins should be using usernames other than “administrator” (or variations), and should be implementing strong password/MFA policies. 
