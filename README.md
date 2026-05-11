@@ -6,7 +6,7 @@ I mainly followed the video from HackTrace ([Azure Honeypot + Sentinel SIEM | Co
 
 Josh's video is a few years old, and since then Azure has updated and changed some of their platform. The PowerShell script that Josh provides outputs the geolocation data in a text file (.txt), where he then creates a custom log in Azure and "trains" the platform to read the correct values from his text file.
 
-However, Azure now only lets you upload JSON files when creating custom logs. I tried to rewrite the script to output the IP geolocation from failed login attempts into the correct JSON format, but was not able to figure out the configuration in Azure Monitor, Log Analytics Workbook, and Sentinel. (See [update](https://github.com/KevinThompson96/Azure-Honeypot#update))
+However, Azure now only lets you upload JSON files when creating custom logs. I tried to rewrite the script to output the IP geolocation from failed login attempts into the correct JSON format, but was not able to figure out the configuration in Azure Monitor, Log Analytics Workbook, and Sentinel. (See [update](https://github.com/KevinThompson96/Azure-Honeypot#update) below)
 
 Instead, I continued with HackTrace's method to monitor the Windows Events logs, filter for failed login attempts, and then exported the data as a .csv file. I then wrote a script (with AI assistance) that parsed the IP addresses from this file, used the IP geolocation API ( [Login to ipgeolocation.io](https://app.ipgeolocation.io/login)), and created a new text file sorted by country and the number of failed login attempts.
 
